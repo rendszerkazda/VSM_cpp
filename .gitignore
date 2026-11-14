@@ -1,0 +1,5 @@
+build/
+docs/html/
+config.json
+*.gz
+.vscode/

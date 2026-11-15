@@ -10,6 +10,7 @@ include(GoogleTest)
 # Every test file is listed explicitly.
 add_executable(vsm_tests
     SettingsTest.cpp
+    LocalFolderStorageTest.cpp
 )
 target_link_libraries(vsm_tests PRIVATE vsm_core GTest::gtest_main)
 

@@ -22,6 +22,8 @@ include(FetchContent)
 # Every source file is listed explicitly (no file(GLOB)).
 set(VSM_SOURCES
     src/Settings.cpp
+    src/FileUtil.cpp
+    src/LocalFolderStorage.cpp
 )
 
 add_library(vsm_core STATIC ${VSM_SOURCES})

@@ -24,10 +24,28 @@ set(VSM_SOURCES
     src/Settings.cpp
     src/FileUtil.cpp
     src/LocalFolderStorage.cpp
+    src/GzipCompressor.cpp
 )
+
+# zlib: use the system one if present, otherwise download and build it.
+find_package(ZLIB QUIET)
+if(NOT ZLIB_FOUND)
+    message(STATUS "System zlib not found, fetching zlib 1.3.1")
+    FetchContent_Declare(zlib
+        URL https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz
+    )
+    FetchContent_MakeAvailable(zlib)
+    add_library(vsm_zlib INTERFACE)
+    target_link_libraries(vsm_zlib INTERFACE zlibstatic)
+    target_include_directories(vsm_zlib INTERFACE ${zlib_SOURCE_DIR} ${zlib_BINARY_DIR})
+else()
+    add_library(vsm_zlib INTERFACE)
+    target_link_libraries(vsm_zlib INTERFACE ZLIB::ZLIB)
+endif()
 
 add_library(vsm_core STATIC ${VSM_SOURCES})
 target_include_directories(vsm_core PUBLIC include)
+target_link_libraries(vsm_core PUBLIC vsm_zlib)
 
 if(MSVC)
     target_compile_options(vsm_core PUBLIC /W4)

@@ -25,7 +25,15 @@ set(VSM_SOURCES
     src/FileUtil.cpp
     src/LocalFolderStorage.cpp
     src/GzipCompressor.cpp
+    src/Config.cpp
+    src/PathProvider.cpp
 )
+
+# nlohmann/json (header only)
+FetchContent_Declare(nlohmann_json
+    URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz
+)
+FetchContent_MakeAvailable(nlohmann_json)
 
 # zlib: use the system one if present, otherwise download and build it.
 find_package(ZLIB QUIET)
@@ -45,7 +53,7 @@ endif()
 
 add_library(vsm_core STATIC ${VSM_SOURCES})
 target_include_directories(vsm_core PUBLIC include)
-target_link_libraries(vsm_core PUBLIC vsm_zlib)
+target_link_libraries(vsm_core PUBLIC vsm_zlib nlohmann_json::nlohmann_json)
 
 if(MSVC)
     target_compile_options(vsm_core PUBLIC /W4)

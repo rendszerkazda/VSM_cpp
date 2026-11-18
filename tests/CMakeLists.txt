@@ -13,6 +13,7 @@ add_executable(vsm_tests
     LocalFolderStorageTest.cpp
     GzipCompressorTest.cpp
     ConfigTest.cpp
+    SupabaseStorageTest.cpp
 )
 target_link_libraries(vsm_tests PRIVATE vsm_core GTest::gtest_main)
 

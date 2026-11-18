@@ -27,6 +27,8 @@ set(VSM_SOURCES
     src/GzipCompressor.cpp
     src/Config.cpp
     src/PathProvider.cpp
+    src/CurlProcessHttpClient.cpp
+    src/SupabaseStorage.cpp
 )
 
 # nlohmann/json (header only)

@@ -29,6 +29,8 @@ set(VSM_SOURCES
     src/PathProvider.cpp
     src/CurlProcessHttpClient.cpp
     src/SupabaseStorage.cpp
+    src/Events.cpp
+    src/ActivityLog.cpp
 )
 
 # nlohmann/json (header only)

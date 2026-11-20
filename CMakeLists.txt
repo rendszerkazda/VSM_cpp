@@ -31,6 +31,7 @@ set(VSM_SOURCES
     src/SupabaseStorage.cpp
     src/Events.cpp
     src/ActivityLog.cpp
+    src/Commands.cpp
 )
 
 # nlohmann/json (header only)

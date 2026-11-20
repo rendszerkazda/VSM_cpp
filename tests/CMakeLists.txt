@@ -15,6 +15,7 @@ add_executable(vsm_tests
     ConfigTest.cpp
     SupabaseStorageTest.cpp
     ObserverTest.cpp
+    CommandsTest.cpp
 )
 target_link_libraries(vsm_tests PRIVATE vsm_core GTest::gtest_main)
 

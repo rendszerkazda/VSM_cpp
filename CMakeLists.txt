@@ -32,6 +32,9 @@ set(VSM_SOURCES
     src/Events.cpp
     src/ActivityLog.cpp
     src/Commands.cpp
+    src/SaveManagerFacade.cpp
+    src/CliArgs.cpp
+    src/App.cpp
 )
 
 # nlohmann/json (header only)
@@ -67,7 +70,8 @@ else()
 endif()
 
 # ------------------------------------------------------------------ executable
-# (added together with the CLI)
+add_executable(vsm src/main.cpp)
+target_link_libraries(vsm PRIVATE vsm_core)
 
 # ----------------------------------------------------------------------- tests
 if(VSM_BUILD_TESTS)

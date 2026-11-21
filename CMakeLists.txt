@@ -79,6 +79,26 @@ if(VSM_BUILD_TESTS)
     add_subdirectory(tests)
 endif()
 
+# ---------------------------------------------------------------------- Doxygen
+# Optional: "cmake --build build --target docs" generates build/docs/html
+find_package(Doxygen QUIET)
+if(DOXYGEN_FOUND)
+    set(DOXYGEN_PROJECT_NAME "Valheim Save Manager")
+    set(DOXYGEN_PROJECT_NUMBER ${PROJECT_VERSION})
+    set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/docs)
+    set(DOXYGEN_EXTRACT_ALL YES)
+    set(DOXYGEN_GENERATE_LATEX NO)
+    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE ${CMAKE_SOURCE_DIR}/README.md)
+    doxygen_add_docs(docs
+        ${CMAKE_SOURCE_DIR}/README.md
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src
+        COMMENT "Generating API documentation with Doxygen"
+    )
+else()
+    message(STATUS "Doxygen not found - the 'docs' target is not available")
+endif()
+
 # ------------------------------------------------------------------- housekeeping
 add_custom_target(clean-all
     COMMAND ${CMAKE_COMMAND} -E rm -rf ${CMAKE_BINARY_DIR}/*

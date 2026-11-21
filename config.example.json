@@ -1,0 +1,7 @@
+{
+    "username": "your_name",
+    "world_name": "Arena19",
+    "supabase_project_id": "your_project_id",
+    "supabase_key": "put the key here or use the VSM_SUPABASE_KEY environment variable",
+    "bucket": "valheim-saves"
+}

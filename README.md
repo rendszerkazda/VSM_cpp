@@ -8,7 +8,7 @@ played last. Local files are always backed up before a download overwrites
 them, and the backup can be restored.
 
 It is a C++ port of the earlier Python/Tkinter "Valheim Save Manager v2",
-written for the *Production Software Engineering* course: source code,
+written for the *Production Software Development* course: source code,
 design patterns, CMake, Git and unit tests.
 
 ## Usage

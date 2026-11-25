@@ -1,15 +1,8 @@
 # Valheim Save Manager (vsm)
 
-Command line tool (C++17) that shares Valheim world saves between players:
-it compresses the world files (`.db`, `.fwl`) with gzip, uploads them to a
-cloud storage (Supabase Storage) and downloads them again. Every upload and
-download is written into a shared activity log, so everybody can see who
-played last. Local files are always backed up before a download overwrites
-them, and the backup can be restored.
+Command line tool (C++17) that shares Valheim world saves between players: it compresses the world files (`.db`, `.fwl`) with gzip, uploads them to a cloud storage (Supabase Storage) and downloads them again. Valheim is a co-op survival game whose world normally lives only on the host's PC, so with a shared save the others can play the same world without a dedicated server and without waiting for the host to be online. Every upload and download is written into a shared activity log, so everybody can see who played last. Local files are always backed up before a download overwrites them, and the backup can be restored.
 
-It is a C++ port of the earlier Python/Tkinter "Valheim Save Manager v2",
-written for the *Production Software Development* course: source code,
-design patterns, CMake, Git and unit tests.
+It is a C++ port of the earlier Python/Tkinter "Valheim Save Manager v2", written for the *Production Software Development* course: source code, design patterns, CMake, Git and unit tests.
 
 ## Usage
 
